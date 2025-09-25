@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/jeboehm/version-test/compare/v0.1.1...v0.1.2) (2025-09-25)
+
+
+### Bug Fixes
+
+* test ([95376f3](https://github.com/jeboehm/version-test/commit/95376f3d2b064cb4a96c88d83494ff4372162406))
+
+
+
 ## [0.1.1](https://github.com/jeboehm/version-test/compare/v0.1.0...v0.1.1) (2025-09-25)
 
 
