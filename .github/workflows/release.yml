@@ -12,22 +12,19 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: Generate changelog and determine version
         id: changelog
         uses: TriPSs/conventional-changelog-action@v6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           skip-on-empty: true
+          skip-version-file: true
           create-summary: true
-          output-file: "false"
-
-      - name: Create GitHub Release (Patch versions)
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
-        uses: actions/create-release@v1
         with:
-          tag_name: ${{ steps.changelog.outputs.tag }}
-          release_name: Release ${{ steps.changelog.outputs.version }}
+          tag: ${{ steps.changelog.outputs.tag }}
+          name: Release ${{ steps.changelog.outputs.version }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
