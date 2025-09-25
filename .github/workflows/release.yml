@@ -19,10 +19,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           skip-on-empty: true
-          skip-version-file: true
           create-summary: true
           output-file: "false"
-
 
       - name: Create GitHub Release (Patch versions)
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
