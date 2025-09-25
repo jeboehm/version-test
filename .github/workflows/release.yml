@@ -19,12 +19,11 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           skip-on-empty: true
           skip-version-file: true
-          create-summary: true
-      - name: Create GitHub Release
-        uses: ncipollo/release-action@v1
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
-        with:
-          tag: ${{ steps.changelog.outputs.tag }}
-          name: Release ${{ steps.changelog.outputs.version }}
-          body: ${{ steps.changelog.outputs.clean_changelog }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+    #   - name: Create GitHub Release
+    #     uses: ncipollo/release-action@v1
+    #     if: ${{ steps.changelog.outputs.skipped == 'false' }}
+    #     with:
+    #       tag: ${{ steps.changelog.outputs.tag }}
+    #       name: Release ${{ steps.changelog.outputs.version }}
+    #       body: ${{ steps.changelog.outputs.clean_changelog }}
+    #       token: ${{ secrets.GITHUB_TOKEN }}
