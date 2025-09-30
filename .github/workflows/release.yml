@@ -45,8 +45,6 @@ jobs:
             echo "No changes to commit"
             exit 0
           fi
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -A
           git commit -m "chore(release): update image references to ${{ steps.changelog.outputs.tag }}"
           git tag -a "${{ steps.changelog.outputs.tag }}" -m "Release ${{ steps.changelog.outputs.version }}"
